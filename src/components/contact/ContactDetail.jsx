@@ -26,31 +26,33 @@ const ContactDetail = () => {
     if (!/\S+@\S+\.\S+/.test(formData.email))
       newErrors.email = "Enter a valid email address";
     return newErrors;
-  };
-
+  };        
+               
   // ✅ Handle Submit
+// inside your ContactSection component
 const handleSubmit = async (e) => {
   e.preventDefault();
+  setIsSubmitting(true);
 
   try {
-    const response = await fetch("http://localhost:5000/send-email", {
+    const response = await fetch("http://localhost:8000/send_mail.php", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(formData),
     });
 
     const result = await response.json();
-    if (response.ok) {
-      alert("✅ Your message has been sent!");
-      setFormData({ fullName: "", phone: "", email: "", note: "" });
-    } else {
-      alert("❌ " + result.message);
-    }
+    alert(result.message);
   } catch (error) {
-    console.error(error);
-    alert("Something went wrong. Please try again.");
+    alert("Error: " + error.message);
+  } finally {
+    setIsSubmitting(false);
   }
 };
+
+
 
 
   return (

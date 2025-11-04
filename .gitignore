@@ -1,4 +1,39 @@
+ 
+# ============================
+# 👨‍💻 React + PHP Project Gitignore
+# ============================
+
+# --- Node & React ---
 node_modules/
 dist/
-.env
+build/
+.vite/
 .vscode/
+.env
+.env.local
+
+# --- PHP sensitive files ---
+config.php
+phpmailer_config.php
+phpmailer/
+vendor/
+composer.lock
+
+# --- Logs & cache ---
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.DS_Store
+*.cache
+*.tmp
+
+# --- OS or IDE files ---
+Thumbs.db
+.idea/
+*.swp
+*.swo
+
+# --- Uploads (optional, if dynamic) ---
+uploads/
