@@ -13,6 +13,7 @@ function Home() {
       <div class="it-slider-3-area p-relative fix">
      {/* <Slider/> */}
      <AboutSection />
+     
      <ProductsSection />
      
       {/* Other components */}
