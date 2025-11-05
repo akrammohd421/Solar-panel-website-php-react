@@ -52,7 +52,7 @@ try {
   ";
 
   $mail->send();
-  echo json_encode(["success" => true, "message" => "Mail sent successfully!"]);
+  echo json_encode(["success" => true, "message" => "Your form has been submitted successfully ✅!"]);
 } catch (Exception $e) {
   echo json_encode(["success" => false, "message" => "Mailer Error: " . $mail->ErrorInfo]);
 }
